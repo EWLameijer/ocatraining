@@ -2,7 +2,6 @@ package net.ericwubbo.ocatraining;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,5 +21,10 @@ public class QuestionController {
     @PostMapping
     void create(@RequestBody Question question) {
         questionRepository.save(question);
+    }
+
+    @DeleteMapping("{id}")
+    void deleteById(@PathVariable long id) {
+        questionRepository.deleteById(id);
     }
 }

@@ -9,5 +9,4 @@ public class OcaTrainingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OcaTrainingApplication.class, args);
 	}
-
 }
