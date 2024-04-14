@@ -7,6 +7,9 @@ public class Question {
         return description;
     }
 
+    public Question() {
+    }
+
     public Question(String description) {
         this.description = description;
     }
