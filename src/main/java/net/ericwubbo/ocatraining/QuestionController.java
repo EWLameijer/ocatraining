@@ -8,18 +8,19 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/questions")
 public class QuestionController {
+    private final QuestionRepository questionRepository;
 
-    private final List<Question> questions = new ArrayList<>(List.of(
-            new Question("Which access modifier confers the smallest visibility?"),
-            new Question("What is the difference between overriding and overloading?")));
+    public QuestionController(QuestionRepository questionRepository) {
+        this.questionRepository = questionRepository;
+    }
 
     @GetMapping
     public List<Question> getAll() {
-        return questions;
+        return questionRepository.findAll();
     }
 
     @PostMapping
     void create(@RequestBody Question question) {
-        questions.add(question);
+        questionRepository.save(question);
     }
 }
